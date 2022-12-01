@@ -67,6 +67,6 @@ COUNT(*)*8/1024 AS MB,
 DB_NAME(database_id)
 FROM sys.dm_os_buffer_descriptors
 GROUP BY DB_NAME(database_id), database_id
-ORDER BY MB DESC;
+ORDER BY MB DESC; --Caches einsehen
 
-DBCC freeproccache();
+DBCC dropcleanbuffers(); --Caches entleeren
