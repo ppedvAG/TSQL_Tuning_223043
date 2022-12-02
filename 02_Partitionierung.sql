@@ -46,8 +46,8 @@ SELECT * FROM pTable WHERE partitionNumber = 2000;
 --Neue Grenze einfügen
 --Davor neue FileGroup + File erstellen
 
-ALTER PARTITION SCHEME sch_Zahl NEXT USED bis5000; -----bis100-----bis200-----ab201-----bis5000-----
 ALTER PARTITION FUNCTION pf_Zahl() SPLIT RANGE(5000); --Neue Range hinzufügen -----100-----200-----5000-----
+ALTER PARTITION SCHEME sch_Zahl NEXT USED bis5000; -----bis100-----bis200-----ab201-----bis5000-----
 
 SELECT $partition.pf_Zahl(6000); --Partition 4
 
